@@ -49,7 +49,7 @@ export default function AboutMe({ onComplete }) {
       {/* Terminal typing */}
       <div className="w-full max-w-4xl mb-6">
         <pre className="text-lg font-mono">
-          <span className="text-green-400">$ victormdevops | </span>
+          <span className="text-green-400">$ muthomivictor | </span>
           <span className="text-white">{typedCommand}</span>
           <span className="animate-pulse text-white">▋</span>
         </pre>
@@ -61,7 +61,7 @@ export default function AboutMe({ onComplete }) {
           {/* Profile image */}
           <img
             src="/profile.png"
-            alt="Victor Muthomi"
+            alt="Muthomi Victor"
             className="w-40 h-40 rounded-full border-4 border-green-400 shadow-lg"
           />
 
@@ -72,35 +72,35 @@ export default function AboutMe({ onComplete }) {
             </h2>
 
             <p className="text-gray-300 leading-relaxed">
-              I’m{" "}
+              I am{" "}
               <span className="text-green-400 font-semibold">
-                Victor Muthomi
+                Muthomi Victor
               </span>
-              , a DevOps Engineer passionate about building reliable, scalable,
-              and automated systems. My expertise spans{" "}
-              <span className="text-cyan-400">Docker</span>,{" "}
-              <span className="text-cyan-400">Kubernetes</span>,{" "}
-              <span className="text-cyan-400">Helm</span>,{" "}
-              <span className="text-cyan-400">CI/CD pipelines</span>,{" "}
-              <span className="text-cyan-400">Terraform</span>,{" "}
-              <span className="text-cyan-400">Ansible</span>, and{" "}
-              <span className="text-cyan-400">monitoring</span> with Prometheus
-              & Grafana. <br />
-              <br />
-              With a background in{" "}
-              <span className="text-cyan-400">
-                backend and full-stack development
+              , a self-taught{" "}
+              <span className="text-cyan-400 font-semibold">
+                Backend Engineer{" "}
               </span>
-              , I also bring a developer’s perspective into DevOps — bridging
-              code and infrastructure to deliver end-to-end solutions.
+              and problem solver. I thrive on building robust, scalable, and
+              maintainable APIs, handling complex business logic, and creating
+              elegant solutions to challenging problems.
             </p>
 
             <p className="text-gray-300 leading-relaxed">
-              I enjoy bridging the gap between development and operations,
-              creating workflows that accelerate delivery while maintaining
-              system resilience. With experience across multiple clouds (AWS,
-              GCP, Oracle Cloud, Civo) and PaaS platforms, I adapt solutions to
-              diverse infrastructures.
+              With experience in{" "}
+              <span className="text-cyan-400">Django REST Framework</span>,
+              <span className="text-cyan-400">Node.js</span>,
+              <span className="text-cyan-400">SQL/NoSQL databases</span>, and
+              cloud platforms (AWS, GCP, Oracle Cloud), I craft backend systems
+              that power modern applications. My background in DevOps adds a
+              unique edge, ensuring code and infrastructure integrate seamlessly
+              for end-to-end reliability.
+            </p>
+
+            <p className="text-gray-300 leading-relaxed">
+              I amm curious, detail-oriented, and love to explore new
+              technologies. From freelance projects to startup initiatives, I’ve
+              delivered backend solutions across multiple domains — always
+              aiming for world-class quality and developer-level precision.
             </p>
           </div>
         </div>

@@ -11,14 +11,14 @@ const colors = [
 ];
 
 export default function Banner({ onComplete }) {
-  const bannerText = "Victor Muthomi";
-  const subtitleText = "🚀 DevOps Engineer • Cloud • CI/CD • Kubernetes";
+  const bannerText = "Muthomi Victor";
+  const subtitleText =
+    "🚀 Backend Engineer • APIs • Scalable Systems • Node.js | Go | Python";
 
   const [bannerDisplay, setBannerDisplay] = useState("");
   const [subtitleDisplay, setSubtitleDisplay] = useState("");
   const completedOnce = useRef(false);
 
-  // ✅ Indices stored in refs so they don't reset on re-render
   const iRef = useRef(0);
   const jRef = useRef(0);
 
@@ -32,8 +32,6 @@ export default function Banner({ onComplete }) {
         jRef.current++;
       } else {
         clearInterval(typingInterval);
-
-        // ✅ Trigger completion only once
         if (!completedOnce.current) {
           completedOnce.current = true;
           if (onComplete) {
@@ -50,11 +48,10 @@ export default function Banner({ onComplete }) {
     }, 120);
 
     return () => clearInterval(typingInterval);
-  }, []); // ✅ empty deps → only run once
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center py-10 text-center">
-      {/* Rainbow banner */}
       <pre className="text-4xl sm:text-6xl font-bold tracking-widest">
         {bannerDisplay.split("").map((char, idx) => (
           <span key={idx} className={colors[idx % colors.length]}>
@@ -66,7 +63,6 @@ export default function Banner({ onComplete }) {
         )}
       </pre>
 
-      {/* Subtitle */}
       <p className="mt-2 text-white/70 text-lg">
         {subtitleDisplay}
         {subtitleDisplay.length < subtitleText.length && (

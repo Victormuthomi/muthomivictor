@@ -36,7 +36,7 @@ function TerminalBlock({ command, onComplete }) {
   return (
     <div className="w-full max-w-4xl mb-6">
       <pre className="text-lg font-mono bg-black p-4 rounded-lg shadow-lg">
-        <span className="text-green-400">$ victormdevops | </span>
+        <span className="text-green-400">$ muthomivictor | </span>
         <span className="text-white">{typedCommand}</span>
         <span className="text-green-400 animate-pulse">▋</span>
       </pre>
@@ -45,35 +45,34 @@ function TerminalBlock({ command, onComplete }) {
 }
 
 export default function Contact() {
-  const [showDevOpsLinks, setShowDevOpsLinks] = useState(false);
-  const [showAboutLinks, setShowAboutLinks] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-12 bg-black text-white">
-      {/* DevOps terminal */}
+      {/* Terminal typing */}
       <TerminalBlock
         command="cat contact.txt"
-        onComplete={() => setShowDevOpsLinks(true)}
+        onComplete={() => setShowLinks(true)}
       />
 
-      {/* DevOps Links */}
-      {showDevOpsLinks && (
-        <div className="w-full max-w-4xl space-y-4 text-lg mb-6">
+      {/* Contact Links */}
+      {showLinks && (
+        <div className="w-full max-w-4xl space-y-4 text-lg">
           <a
-            href="mailto:victormuthomi.dev@gmail.com"
+            href="mailto:muthomi.victor.dev@gmail.com"
             className="flex items-center gap-3 text-gray-300 hover:text-cyan-400"
           >
             <Mail className="w-5 h-5 text-yellow-400" />
-            victorm.devops@gmail.com
+            muthomi.victor.dev@gmail.com
           </a>
           <a
-            href="https://github.com/victormdevops"
+            href="https://github.com/Victormuthomi"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 text-gray-300 hover:text-cyan-400"
           >
             <Github className="w-5 h-5 text-yellow-400" />
-            github.com/victormdevops
+            github.com/Victormuthomi
           </a>
           <a
             href="https://wa.me/254710210258"
@@ -84,43 +83,14 @@ export default function Contact() {
             <Phone className="w-5 h-5 text-yellow-400" />
             +254710210258
           </a>
-        </div>
-      )}
-
-      {/* About / Full-Stack terminal */}
-      <TerminalBlock
-        command="cat more_aboutme.txt"
-        onComplete={() => setShowAboutLinks(true)}
-      />
-
-      {/* About / Full-Stack Links */}
-      {showAboutLinks && (
-        <div className="w-full max-w-4xl space-y-4 text-lg">
-          <p className="text-gray-300">
-            I’m primarily a{" "}
-            <span className="text-cyan-400">DevOps engineer</span> focused on
-            building scalable and reliable systems, but I also have experience
-            in <span className="text-cyan-400">full-stack development</span>.
-            Feel free to explore my full-stack projects below.
+          <p className="text-gray-300 mt-4">
+            I’m a <span className="text-cyan-400">Backend Engineer </span>
+            with experience in Node.js, Go, Django, PostgreSQL, MongoDB, REST
+            APIs, JWT authentication, and containerized deployments. I also have
+            foundational knowledge in{" "}
+            <span className="text-cyan-400">DevOps & Cloud </span>
+            which I leverage to build scalable and reliable systems.
           </p>
-          <a
-            href="https://github.com/Victormuthomi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 text-gray-300 hover:text-cyan-400"
-          >
-            <Github className="w-5 h-5 text-yellow-400" />
-            Full-Stack GitHub
-          </a>
-          <a
-            href="https://victormuthomi.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 text-gray-300 hover:text-cyan-400"
-          >
-            <Phone className="w-5 h-5 text-yellow-400" />
-            Full-Stack Portfolio
-          </a>
         </div>
       )}
     </div>

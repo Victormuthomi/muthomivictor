@@ -3,66 +3,43 @@ import { useEffect, useState } from "react";
 export default function Projects({ onComplete }) {
   const projects = [
     {
-      name: "Chat System",
-      desc: "A real-time chat application with containerized deployment and automated CI/CD.",
-      devops: "🐳 Docker · ⚡ GitHub Actions · ☁️ Render (PaaS)",
-      backend: "Go (Gin)",
-      frontend: "React",
-      github: "https://github.com/victormdevops/chat-system",
-      live: "https://github.com/victormdevops/chat-system",
+      name: "Ajirinow",
+      desc: "Platform connecting clients with construction workers. Built MVP independently, handling backend, database, and DevOps pipelines.",
+      backend: "Django REST Framework · PostgreSQL · Docker · Kubernetes",
+      github: "https://github.com/victormdevops/ajirinow",
+      live: "https://ajirinow.vercel.app/",
     },
     {
       name: "RotaFlow",
-      desc: "Shift scheduling & workflow management tool deployed on a VPS using Docker Compose.",
-      devops:
-        "🐳 Docker · 🐙 Docker Compose · ⚡ GitHub Actions · VPS Deployment",
-      backend: "Node.js (Express)",
-      frontend: "React (PERN)",
+      desc: "Scheduling system for assigning roles and managing workers. Designed RESTful APIs and database models for smooth workforce management.",
+      backend: "Node.js (Express) · PostgreSQL · REST APIs",
       github: "https://github.com/victormdevops/rotaflow",
       live: "https://rotaflow-frontend.vercel.app/",
     },
     {
-      name: "TuVote",
-      desc: "Online voting platform with monitoring (Prometheus + Grafana) for real-time metrics.",
-      devops:
-        "🐳 Docker · 🐙 Docker Compose · ⚡ GitHub Actions · 📊 Prometheus + Grafana · VPS Deployment",
-      backend: "Node.js (Express)",
-      frontend: "React (MERN)",
-      github: "https://github.com/victormdevops/tuvote",
-      live: "https://tuvote-frontend.vercel.app/",
-    },
-    {
       name: "GitConnect",
-      desc: "Developer social platform deployed on Kubernetes clusters with Helm for package management.",
-      devops:
-        "☸️ Kubernetes (Minikube · K3d) · 🐳 Docker · ⚡ GitHub Actions · 📊 Prometheus + Grafana · ⎈ Helm",
-      backend: "Go (Gin)",
-      frontend: "React",
+      desc: "Social platform for developers to share projects, profiles, and job opportunities. Built backend APIs and integrated authentication, data relationships, and real-time features.",
+      backend: "Go (Gin) · PostgreSQL · JWT Authentication · Real-time APIs",
       github: "https://github.com/victormdevops/gitconnect",
       live: "https://gitconnect-frontend.vercel.app/",
     },
     {
-      name: "RazorBill (Streaming Platform)",
-      desc: "Streaming platform showcasing Kubernetes orchestration, monitoring, and CI/CD pipelines.",
-      devops:
-        "☸️ Kubernetes (Minikube · K3d) · 🐳 Docker · ⚡ GitHub Actions · 📊 Prometheus + Grafana · ⎈ Helm · 🛠️ Terraform · 🤖 Ansible",
-      backend: "Node.js (MERN)",
-      frontend: "React",
+      name: "TuVote",
+      desc: "Secure online voting solution for organizations and communities. Developed backend API, authentication, and vote tallying system ensuring data integrity and security.",
+      backend: "Node.js (Express) · MongoDB · JWT Authentication · REST APIs",
+      github: "https://github.com/victormdevops/tuvote",
+      live: "https://tuvote-frontend.vercel.app/",
+    },
+    {
+      name: "RazorBill",
+      desc: "Streaming platform showcasing backend orchestration, monitoring, and CI/CD pipelines.",
+      backend: "Node.js (MERN) · Kubernetes · Docker · Prometheus + Grafana",
       github: "https://github.com/victormdevops/razorbill",
       live: "https://razorbill-website.vercel.app/",
     },
-    {
-      name: "Ajirinow (Worker Listing Platform)",
-      desc: "Startup platform connecting clients with construction workers. Full-stack app built with Django REST Framework and React with Tailwind CSS.",
-      devops: "🐳 Docker · ⚡ GitHub Actions ", // if you have CI/CD/other DevOps setup
-      backend: "Django REST Framework · PostgreSQL",
-      frontend: "React · Tailwind CSS",
-      github: "https://github.com/victormdevops/ajirinow",
-      live: "https://ajirinow.vercel.app/",
-    },
   ];
 
-  const command = "ls projects/";
+  const command = "ls backend-projects/";
   const [typedCommand, setTypedCommand] = useState("");
 
   useEffect(() => {
@@ -76,7 +53,7 @@ export default function Projects({ onComplete }) {
         if (i === command.length) {
           setTimeout(() => {
             deleting = true;
-          }, 1000); // pause before deleting
+          }, 1000);
         }
       } else {
         setTypedCommand(command.slice(0, i));
@@ -91,7 +68,7 @@ export default function Projects({ onComplete }) {
     return () => clearInterval(typingInterval);
   }, []);
 
-  // 🔥 Auto trigger onComplete after a short delay
+  // Auto trigger onComplete after a short delay
   useEffect(() => {
     const timer = setTimeout(() => {
       if (onComplete) onComplete();
@@ -101,37 +78,27 @@ export default function Projects({ onComplete }) {
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-6 bg-black text-white">
-      {/* Terminal command (loops forever) */}
+      {/* Terminal command */}
       <div className="w-full max-w-4xl mb-4">
         <pre className="text-lg font-mono">
-          <span className="text-green-400">$ victormdevops | </span>
+          <span className="text-green-400">$ muthomivictor | </span>
           <span className="text-white">{typedCommand}</span>
           <span className="text-green-400 animate-pulse">▋</span>
         </pre>
       </div>
 
-      {/* Projects (always visible) */}
-      <div className="w-full max-w-4xl font-mono">
+      {/* Projects */}
+      <div className="w-full max-w-4xl font-mono space-y-6">
         {projects.map((proj, index) => (
           <div key={index} className="animate-fade-in-up">
             <h3 className="text-xl font-bold text-green-400">{proj.name}</h3>
             <p className="text-gray-300 mt-1">{proj.desc}</p>
 
-            {/* Tech stacks */}
-            <div className="mt-2 space-y-1 text-sm">
-              <p>
-                <span className="text-yellow-400">DevOps 🛠</span>:{" "}
-                {proj.devops}
-              </p>
-              <p>
-                <span className="text-yellow-400">Backend ⚙️</span>:{" "}
-                {proj.backend}
-              </p>
-              <p>
-                <span className="text-yellow-400">Frontend 🎨</span>:{" "}
-                {proj.frontend}
-              </p>
-            </div>
+            {/* Backend stack */}
+            <p className="mt-2 text-sm">
+              <span className="text-yellow-400">Backend ⚙️</span>:{" "}
+              {proj.backend}
+            </p>
 
             {/* Links */}
             <div className="flex gap-4 mt-2">

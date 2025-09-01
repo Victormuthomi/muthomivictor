@@ -1,19 +1,28 @@
 import { useEffect, useState } from "react";
-import { FaDocker, FaLinux, FaGithub, FaAws } from "react-icons/fa";
 import {
+  FaNodeJs,
+  FaPython,
+  FaDatabase,
+  FaGithub,
+  FaAws,
+  FaLinux,
+} from "react-icons/fa";
+import {
+  SiGo,
+  SiDjango,
+  SiGin,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiDocker,
   SiKubernetes,
-  SiHelm,
-  SiPrometheus,
-  SiGrafana,
-  SiGooglecloud,
-  SiOracle,
-  SiCivo,
-  SiRailway,
-  SiRender,
-  SiGnubash,
   SiTerraform,
   SiAnsible,
+  SiPrometheus,
+  SiGrafana,
   SiNginx,
+  SiRabbitmq,
+  SiApachekafka,
 } from "react-icons/si";
 import ManualScrollHint from "./ManualScrollHint";
 
@@ -21,7 +30,6 @@ export default function Skills() {
   const [typedCommand, setTypedCommand] = useState("");
   const command = "cat skills.txt";
 
-  // 🔁 Loop typing "cat skills.txt" with pauses
   useEffect(() => {
     let i = 0;
     let deleting = false;
@@ -34,7 +42,6 @@ export default function Skills() {
           i++;
           timeout = setTimeout(loop, 120);
         } else {
-          // ⏸ pause before deleting
           timeout = setTimeout(() => {
             deleting = true;
             loop();
@@ -46,7 +53,6 @@ export default function Skills() {
           i--;
           timeout = setTimeout(loop, 80);
         } else {
-          // ⏸ pause before typing again
           deleting = false;
           timeout = setTimeout(loop, 800);
         }
@@ -65,46 +71,47 @@ export default function Skills() {
       {/* Terminal command */}
       <div className="w-full max-w-4xl mb-6">
         <pre className="text-lg font-mono">
-          <span className="text-green-400">$ victormdevops | </span>
+          <span className="text-green-400">$ muthomivictor | </span>
           <span className="text-white">{typedCommand}</span>
           <span className="animate-pulse">█</span>
         </pre>
       </div>
 
-      {/* ✅ Scroll hint shown before skills ONLY on mobile */}
       <div className="w-full max-w-4xl mb-6 block md:hidden">
         <ManualScrollHint />
       </div>
 
-      {/* Skills Sections */}
       <div className="w-full max-w-5xl space-y-12">
-        {/* DevOps Section */}
-        <SkillSection title="Core DevOps Skills">
-          <Skill icon={<FaDocker />} name="Docker" />
-          <Skill icon={<SiKubernetes />} name="Kubernetes" />
-          <Skill icon={<SiHelm />} name="Helm" />
+        {/* Backend Section */}
+        <SkillSection title="Backend & Developer Skills">
+          <Skill icon={<FaNodeJs />} name="Node.js" />
+          <Skill icon={<SiGo />} name="Go" />
+          <Skill icon={<FaPython />} name="Python" />
+          <Skill icon={<SiGin />} name="Gin (Go)" />
+          <Skill icon={<SiDjango />} name="Django" />
+          <Skill icon={<SiPostgresql />} name="PostgreSQL" />
+          <Skill icon={<SiMongodb />} name="MongoDB" />
+          <Skill icon={<SiRedis />} name="Redis" />
+          <Skill icon={<FaGithub />} name="Git & GitHub" />
+          <Skill icon={<SiNginx />} name="Nginx" />
+          <Skill icon={<SiDocker />} name="Docker (backend context)" />
           <Skill icon={<FaLinux />} name="Linux" />
-          <Skill icon={<SiGnubash />} name="Bash" />
+        </SkillSection>
+
+        {/* Cloud & DevOps Section */}
+        <SkillSection title="Cloud & DevOps Skills">
+          <Skill icon={<SiKubernetes />} name="Kubernetes" />
           <Skill icon={<SiTerraform />} name="Terraform" />
           <Skill icon={<SiAnsible />} name="Ansible" />
           <Skill icon={<SiPrometheus />} name="Prometheus" />
           <Skill icon={<SiGrafana />} name="Grafana" />
-          <Skill icon={<SiNginx />} name="Nginx" />
-          <Skill icon={<FaGithub />} name="GitHub Actions" />
-        </SkillSection>
-
-        {/* Cloud Section */}
-        <SkillSection title="Cloud & Deployment Skills">
           <Skill icon={<FaAws />} name="AWS" />
-          <Skill icon={<SiGooglecloud />} name="Google Cloud" />
-          <Skill icon={<SiOracle />} name="Oracle Cloud" />
-          <Skill icon={<SiCivo />} name="Civo" />
-          <Skill icon={<SiRailway />} name="Railway" />
-          <Skill icon={<SiRender />} name="Render" />
+          <Skill icon={<FaGithub />} name="CI/CD Basics" />
+          <Skill icon={<SiRabbitmq />} name="RabbitMQ" />
+          <Skill icon={<SiApachekafka />} name="Kafka" />
         </SkillSection>
       </div>
 
-      {/* ✅ Scroll hint shown AFTER skills ONLY on desktop+ */}
       <div className="w-full max-w-4xl mt-6 hidden md:block">
         <ManualScrollHint />
       </div>
@@ -128,8 +135,7 @@ function SkillSection({ title, children }) {
 function Skill({ icon, name }) {
   return (
     <div className="flex flex-col items-center">
-      {/* ✅ Icon green, text white, pulsing */}
-      <div className="text-4xl mb-2 text-green-400 animate-pulse">{icon}</div>
+      <div className="text-4xl mb-2 text-green-400">{icon}</div>
       <p className="text-white">{name}</p>
     </div>
   );
