@@ -31,11 +31,11 @@ export default function Projects({ onComplete }) {
       live: "https://tuvote-frontend.vercel.app/",
     },
     {
-      name: "RazorBill",
-      desc: "Streaming platform showcasing backend orchestration, monitoring, and CI/CD pipelines.",
-      backend: "Node.js (MERN) · Kubernetes · Docker · Prometheus + Grafana",
-      github: "https://github.com/Victormuthomi/razorbill-backend",
-      live: "https://razorbill-website.vercel.app/",
+      name: "GoChat",
+      desc: "Lightweight real-time peer-to-peer chat system with WebSockets.",
+      backend: "Go (Gin) · WebSockets · Docker",
+      github: "https://github.com/Victormuthomi/go-chat-system",
+      live: "https://chat-system-5ppc.onrender.com/",
     },
   ];
 
