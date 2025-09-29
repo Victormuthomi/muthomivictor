@@ -10,19 +10,16 @@ import {
 import {
   SiGo,
   SiDjango,
-  SiGin,
   SiPostgresql,
   SiMongodb,
   SiRedis,
   SiDocker,
   SiKubernetes,
-  SiTerraform,
-  SiAnsible,
   SiPrometheus,
   SiGrafana,
   SiNginx,
-  SiRabbitmq,
-  SiApachekafka,
+  SiTypescript,
+  SiPrisma,
 } from "react-icons/si";
 import ManualScrollHint from "./ManualScrollHint";
 
@@ -85,30 +82,27 @@ export default function Skills() {
         {/* Backend Section */}
         <SkillSection title="Backend & Developer Skills">
           <Skill icon={<FaNodeJs />} name="Node.js" />
+          <Skill icon={<SiTypescript />} name="TypeScript" />
+          <Skill icon={<SiPrisma />} name="Prisma" />
           <Skill icon={<SiGo />} name="Go" />
           <Skill icon={<FaPython />} name="Python" />
-          <Skill icon={<SiGin />} name="Gin (Go)" />
           <Skill icon={<SiDjango />} name="Django" />
           <Skill icon={<SiPostgresql />} name="PostgreSQL" />
           <Skill icon={<SiMongodb />} name="MongoDB" />
           <Skill icon={<SiRedis />} name="Redis" />
           <Skill icon={<FaGithub />} name="Git & GitHub" />
           <Skill icon={<SiNginx />} name="Nginx" />
-          <Skill icon={<SiDocker />} name="Docker (backend context)" />
+          <Skill icon={<SiDocker />} name="Docker" />
           <Skill icon={<FaLinux />} name="Linux" />
         </SkillSection>
 
         {/* Cloud & DevOps Section */}
         <SkillSection title="Cloud & DevOps Skills">
           <Skill icon={<SiKubernetes />} name="Kubernetes" />
-          <Skill icon={<SiTerraform />} name="Terraform" />
-          <Skill icon={<SiAnsible />} name="Ansible" />
           <Skill icon={<SiPrometheus />} name="Prometheus" />
           <Skill icon={<SiGrafana />} name="Grafana" />
           <Skill icon={<FaAws />} name="AWS" />
-          <Skill icon={<FaGithub />} name="CI/CD Basics" />
-          <Skill icon={<SiRabbitmq />} name="RabbitMQ" />
-          <Skill icon={<SiApachekafka />} name="Kafka" />
+          <Skill icon={<FaGithub />} name="CI/CD" />
         </SkillSection>
       </div>
 
