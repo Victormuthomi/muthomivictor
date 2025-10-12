@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Mail, Github, Phone } from "lucide-react";
+import { LuInfinity } from "react-icons/lu";
 
 // Reusable terminal block for typing commands
 function TerminalBlock({ command, onComplete }) {
@@ -34,9 +35,16 @@ function TerminalBlock({ command, onComplete }) {
   }, [loop, onComplete]);
 
   return (
-    <div className="w-full max-w-4xl mb-6">
-      <pre className="text-lg font-mono bg-black p-4 rounded-lg shadow-lg">
-        <span className="text-green-400">$ muthomivictor | </span>
+    <div className="w-full max-w-4xl mb-4">
+      <pre className="text-lg font-mono bg-black p-3 rounded-lg shadow-lg">
+        <span className="text-green-400">
+          $ the-alcodist{""}
+          <LuInfinity
+            className="inline text-cyan-400 opacity-90 animate-pulse"
+            size={18}
+          />{" "}
+          |{" "}
+        </span>
         <span className="text-white">{typedCommand}</span>
         <span className="text-green-400 animate-pulse">▋</span>
       </pre>
@@ -48,7 +56,7 @@ export default function Contact() {
   const [showLinks, setShowLinks] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-12 bg-black text-white">
+    <section className="flex flex-col items-center justify-center px-6 py-8 bg-black text-white">
       {/* Terminal typing */}
       <TerminalBlock
         command="cat contact.txt"
@@ -57,13 +65,13 @@ export default function Contact() {
 
       {/* Contact Links */}
       {showLinks && (
-        <div className="w-full max-w-4xl space-y-4 text-lg">
+        <div className="w-full max-w-4xl space-y-3 text-lg">
           <a
             href="mailto:muthomi.victor.dev@gmail.com"
             className="flex items-center gap-3 text-gray-300 hover:text-cyan-400"
           >
             <Mail className="w-5 h-5 text-yellow-400" />
-            muthomi.victor.dev@gmail.com
+            victormuthomi100@gmail.com
           </a>
           <a
             href="https://github.com/Victormuthomi"
@@ -83,16 +91,8 @@ export default function Contact() {
             <Phone className="w-5 h-5 text-yellow-400" />
             +254710210258
           </a>
-          <p className="text-gray-300 mt-4">
-            I’m a <span className="text-cyan-400">Backend Engineer </span>
-            with experience in Node.js, Go, Django, PostgreSQL, MongoDB, REST
-            APIs, JWT authentication, and containerized deployments. I also have
-            foundational knowledge in{" "}
-            <span className="text-cyan-400">DevOps & Cloud </span>
-            which I leverage to build scalable and reliable systems.
-          </p>
         </div>
       )}
-    </div>
+    </section>
   );
 }
