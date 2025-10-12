@@ -64,7 +64,7 @@ export default function AboutMe({ onComplete }) {
       </div>
       {/* Bio content */}
       {showContent && (
-        <div className="w-full max-w-4xl flex flex-col md:flex-row items-start gap-8 mt-4 animate-fade-in-up">
+        <div className="w-full max-w-4xl flex flex-col md:flex-row items-center md:items-start gap-8 mt-4 animate-fade-in-up">
           {/* Profile image */}
           <img
             src="/profile.png"
