@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 py-6 text-center text-sm text-white/60">
-      <p>© {new Date().getFullYear()} Muthomi Victor • Backend Engineer</p>
+      <p>© {new Date().getFullYear()} Muthomi Victor • Software Engineer</p>
       <div className="mt-2 space-x-4">
         <a href="#banner" className="text-green-400 hover:text-white">
           Top
