@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { LuInfinity } from "react-icons/lu";
 
 export default function ManualScrollHint({ onComplete }) {
   const messageRef = useRef(
@@ -50,7 +51,14 @@ export default function ManualScrollHint({ onComplete }) {
   return (
     <div className="w-full max-w-4xl mx-auto mb-0 px-4">
       <pre className="font-mono whitespace-pre-wrap break-words text-base sm:text-lg">
-        <span className="text-green-400">$ victormdevops | </span>
+        <span className="text-green-400">
+          $ the-alcodist{""}
+          <LuInfinity
+            className="inline text-cyan-400 opacity-90 animate-pulse"
+            size={18}
+          />{" "}
+          |{" "}
+        </span>
         <span className="text-yellow-400">{typedMessage}</span>
         {/* Blinking cursor while typing OR deleting */}
         <span className="animate-pulse text-yellow-400">▋</span>
