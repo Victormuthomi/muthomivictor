@@ -27,10 +27,9 @@ export default function App() {
   };
 
   const handleAboutComplete = () => {
-    setTimeout(() => {
-      setStep(2);
-      setTimeout(() => scrollToTopOfSection(skillsRef.current), 300);
-    }, 2000);
+    // No auto-scroll to Skills anymore
+    // Just reveal Skills section after AboutMe completes
+    setStep(2);
   };
 
   return (
@@ -53,14 +52,14 @@ export default function App() {
             </section>
           )}
 
-          {/* Skills Section (with embedded hint) */}
+          {/* Skills Section (user scrolls manually) */}
           {step >= 2 && (
             <section id="skills" ref={skillsRef}>
               <Skills />
             </section>
           )}
 
-          {/* User scrolls manually after skills */}
+          {/* User scrolls manually after Skills */}
           {step >= 2 && (
             <>
               <section id="projects">
