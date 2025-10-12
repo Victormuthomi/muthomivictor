@@ -1,45 +1,47 @@
 import { useEffect, useState } from "react";
+import { LuInfinity } from "react-icons/lu";
 
 export default function Projects({ onComplete }) {
   const projects = [
     {
       name: "Ajirinow",
-      desc: "Platform connecting clients with construction workers. Built MVP independently, handling backend, database, and DevOps pipelines.",
-      backend: "Django REST Framework · PostgreSQL · Docker · Kubernetes",
+      desc: "A platform connecting clients with construction workers. Developed the complete MVP — backend, frontend, and deployment pipeline — ensuring seamless system integration and scalability.",
+      stack:
+        "Django REST Framework · React · TailwindCSS · PostgreSQL · Kubernetes",
       github: "https://github.com/Victormuthomi/ajirinow-backend",
       live: "https://ajirinow.vercel.app/",
     },
     {
       name: "RotaFlow",
-      desc: "Scheduling system for assigning roles and managing workers. Designed RESTful APIs and database models for smooth workforce management.",
-      backend: "Node.js (Express) · PostgreSQL · REST APIs",
+      desc: "Workforce scheduling system for managing roles and shifts. Built RESTful APIs, database models, and the frontend interface for smooth team coordination and control.",
+      stack: "Node.js (Express) · React · TailwindCSS · PostgreSQL · Docker",
       github: "https://github.com/Victormuthomi/rotaflow-backend",
       live: "https://rotaflow-frontend.vercel.app/",
     },
     {
       name: "GitConnect",
-      desc: "Social platform for developers to share projects, profiles, and job opportunities. Built backend APIs and integrated authentication, data relationships, and real-time features.",
-      backend: "Go (Gin) · PostgreSQL · JWT Authentication · Real-time APIs",
+      desc: "Social platform for developers to share projects, profiles, and opportunities. Implemented backend APIs, authentication, and real-time features — paired with an elegant frontend UI.",
+      stack: "Go (Gin) · React · TailwindCSS · PostgreSQL · Docker",
       github: "https://github.com/Victormuthomi/gitconnect-backend",
       live: "https://gitconnect-frontend.vercel.app/",
     },
     {
       name: "TuVote",
-      desc: "Secure online voting solution for organizations and communities. Developed backend API, authentication, and vote tallying system ensuring data integrity and security.",
-      backend: "Node.js (Express) · MongoDB · JWT Authentication · REST APIs",
+      desc: "Secure online voting solution for organizations and communities. Built backend authentication, vote tallying, and responsive frontend, ensuring data integrity and transparency.",
+      stack: "Node.js (Express) · React · TailwindCSS · MongoDB · Kubernetes",
       github: "https://github.com/Victormuthomi/tuvote-backend",
       live: "https://tuvote-frontend.vercel.app/",
     },
     {
       name: "GoChat",
-      desc: "Lightweight real-time peer-to-peer chat system with WebSockets.",
-      backend: "Go (Gin) · WebSockets · Docker",
+      desc: "Lightweight, real-time peer-to-peer chat application with WebSockets. Focused on low-latency performance and clean interface design for instant communication.",
+      stack: "Go (Gin) · React · TailwindCSS · WebSockets · Docker",
       github: "https://github.com/Victormuthomi/go-chat-system",
       live: "https://chat-system-5ppc.onrender.com/",
     },
   ];
 
-  const command = "ls backend-projects/";
+  const command = "ls projects/";
   const [typedCommand, setTypedCommand] = useState("");
 
   useEffect(() => {
@@ -77,31 +79,37 @@ export default function Projects({ onComplete }) {
   }, [onComplete]);
 
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-6 bg-black text-white">
+    <section className="flex flex-col items-center justify-center px-6 py-8 bg-black text-white">
       {/* Terminal command */}
       <div className="w-full max-w-4xl mb-4">
         <pre className="text-lg font-mono">
-          <span className="text-green-400">$ muthomivictor | </span>
+          <span className="text-green-400">
+            $ the-alcodist{""}
+            <LuInfinity
+              className="inline text-cyan-400 opacity-90 animate-pulse"
+              size={18}
+            />{" "}
+            |{" "}
+          </span>
           <span className="text-white">{typedCommand}</span>
           <span className="text-green-400 animate-pulse">▋</span>
         </pre>
       </div>
 
       {/* Projects */}
-      <div className="w-full max-w-4xl font-mono space-y-6">
+      <div className="w-full max-w-4xl font-mono space-y-4">
         {projects.map((proj, index) => (
           <div key={index} className="animate-fade-in-up">
             <h3 className="text-xl font-bold text-green-400">{proj.name}</h3>
             <p className="text-gray-300 mt-1">{proj.desc}</p>
 
-            {/* Backend stack */}
-            <p className="mt-2 text-sm">
-              <span className="text-yellow-400">Backend ⚙️</span>:{" "}
-              {proj.backend}
+            {/* Stack */}
+            <p className="mt-1 text-sm">
+              <span className="text-yellow-400">Stack ⚙️</span>: {proj.stack}
             </p>
 
             {/* Links */}
-            <div className="flex gap-4 mt-2">
+            <div className="flex gap-4 mt-1">
               <a
                 href={proj.github}
                 target="_blank"
@@ -124,7 +132,7 @@ export default function Projects({ onComplete }) {
 
             {/* Separator */}
             {index < projects.length - 1 && (
-              <div className="my-4">
+              <div className="my-3">
                 <pre className="text-green-400">
                   ----------------------------------------
                 </pre>
@@ -133,6 +141,6 @@ export default function Projects({ onComplete }) {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
