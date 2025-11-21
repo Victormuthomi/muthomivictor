@@ -3,7 +3,8 @@ import { LuInfinity } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 
 export default function MyBlogs({ authorId }) {
-  const command = "the-alcodist";
+  const username = "the-alcodist";
+  const command = "ls my_blogs";
   const [typedCommand, setTypedCommand] = useState("");
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ export default function MyBlogs({ authorId }) {
       <div className="w-full max-w-4xl mb-4">
         <pre className="text-lg font-mono">
           <span className="text-green-400">
-            $ {command}{" "}
+            $ {username}{" "}
             <LuInfinity
               className="inline text-cyan-400 opacity-90 animate-pulse"
               size={18}
