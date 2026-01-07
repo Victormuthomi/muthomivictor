@@ -67,11 +67,11 @@ export default function Contact() {
       {showLinks && (
         <div className="w-full max-w-4xl space-y-3 text-lg">
           <a
-            href="mailto:muthomi.victor.dev@gmail.com"
+            href="mailto:victor.muthomi.alcodist@gmail.com"
             className="flex items-center gap-3 text-gray-300 hover:text-cyan-400"
           >
             <Mail className="w-5 h-5 text-yellow-400" />
-            victormuthomi100@gmail.com
+            victor.muthomi.alcodist@gmail.com
           </a>
           <a
             href="https://github.com/Victormuthomi"
@@ -83,13 +83,13 @@ export default function Contact() {
             github.com/Victormuthomi
           </a>
           <a
-            href="https://wa.me/254710210258"
+            href="https://wa.me/254758407285"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 text-gray-300 hover:text-cyan-400"
           >
             <Phone className="w-5 h-5 text-yellow-400" />
-            +254710210258
+            +254 758 40 72 85
           </a>
         </div>
       )}

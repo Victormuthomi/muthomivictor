@@ -4,12 +4,12 @@ import { LuInfinity } from "react-icons/lu";
 export default function Projects({ onComplete }) {
   const projects = [
     {
-      name: "Ajirinow",
+      name: "MO-jobs",
       desc: "A platform connecting clients with construction workers. Developed the complete MVP — backend, frontend, and deployment pipeline — ensuring seamless system integration and scalability.",
       stack:
         "Django REST Framework · React · TailwindCSS · PostgreSQL · Kubernetes",
       github: "https://github.com/Victormuthomi/ajirinow-backend",
-      live: "https://ajirinow.vercel.app/",
+      live: "https://mojobs.vercel.app/",
     },
     {
       name: "RotaFlow",
@@ -38,6 +38,21 @@ export default function Projects({ onComplete }) {
       stack: "Go (Gin) · React · TailwindCSS · WebSockets · Docker",
       github: "https://github.com/Victormuthomi/go-chat-system",
       live: "https://chat-system-5ppc.onrender.com/",
+    },
+    // Added projects
+    {
+      name: "RazorBlogs",
+      desc: "Full-stack blogging platform allowing users to create, read, update, and delete posts. Built with a focus on modularity, clean code, and responsive design.",
+      stack: "Go (Gin) · React · TailwindCSS · Docker Compose",
+      github: "https://github.com/Victormuthomi/razorblog-backend",
+      live: "https://razorbill-website.vercel.app/blogs",
+    },
+    {
+      name: "RazorGPT",
+      desc: "AI-powered sports Q&A platform where users can ask questions about players, matches, and statistics. Integrated OpenAI API for fast, intelligent responses.",
+      stack: "Node.js · React · OpenAI API · TailwindCSS",
+      github: "https://github.com/Victormuthomi/razorblog-backend",
+      live: "https://razorbill-website.vercel.app/sportgpt",
     },
   ];
 

@@ -10,7 +10,6 @@ export default function Header() {
       <nav className="flex flex-col items-center px-4 py-4 relative">
         {/* Logo */}
         <div className="flex items-center space-x-2 font-bold text-3xl md:text-4xl mb-3">
-          <span className="text-white">THE</span>
           <span className="text-green-400">ALCODIST</span>
           <LuInfinity className="text-cyan-400" size={36} />
         </div>

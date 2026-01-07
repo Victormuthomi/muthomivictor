@@ -109,6 +109,30 @@ export default function Skills() {
           <Skill icon={<FaLinux />} name="Linux Systems" />
           <Skill icon={<FaGithub />} name="CI/CD" />
         </SkillSection>
+
+        {/* Soft Skills */}
+        <SkillSection title="💡 Soft Skills">
+          <Skill
+            icon={<span className="text-green-400 text-4xl">🗣️</span>}
+            name="Communication"
+          />
+          <Skill
+            icon={<span className="text-green-400 text-4xl">💡</span>}
+            name="Problem Solving"
+          />
+          <Skill
+            icon={<span className="text-green-400 text-4xl">⚡</span>}
+            name="Proactiveness"
+          />
+          <Skill
+            icon={<span className="text-green-400 text-4xl">🤝</span>}
+            name="Teamwork"
+          />
+          <Skill
+            icon={<span className="text-green-400 text-4xl">🧠</span>}
+            name="Adaptability"
+          />
+        </SkillSection>
       </div>
     </section>
   );
