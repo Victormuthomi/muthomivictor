@@ -4,6 +4,20 @@ import { LuInfinity } from "react-icons/lu";
 export default function Projects({ onComplete }) {
   const projects = [
     {
+      name: "RazorGPT",
+      desc: "AI-powered sports Q&A platform where users can ask questions about players, matches, and statistics. Integrated OpenAI API for fast, intelligent responses.",
+      stack: "Node.js · React · OpenAI API · TailwindCSS",
+      github: "https://github.com/Victormuthomi/razorbill-backend-old",
+      live: "https://razorbill-website.vercel.app/sportgpt",
+    },
+    {
+      name: "Alcodist Academy",
+      desc: "Online learning platform under the Alcodist brand. Built autonomous workflows, dashboards, and backend APIs for trainees, focusing on scalability and maintainability.",
+      stack: "NestJS · React · MongoDB · TailwindCSS · Docker",
+      github: "https://github.com/Victormuthomi/academy-backend",
+      live: "https://alcodist-academy.vercel.app/",
+    },
+    {
       name: "MO-jobs",
       desc: "A platform connecting clients with construction workers. Developed the complete MVP — backend, frontend, and deployment pipeline — ensuring seamless system integration and scalability.",
       stack:
@@ -12,18 +26,18 @@ export default function Projects({ onComplete }) {
       live: "https://mojobs.vercel.app/",
     },
     {
-      name: "RotaFlow",
-      desc: "Workforce scheduling system for managing roles and shifts. Built RESTful APIs, database models, and the frontend interface for smooth team coordination and control.",
-      stack: "Node.js (Express) · React · TailwindCSS · PostgreSQL · Docker",
-      github: "https://github.com/Victormuthomi/rotaflow-backend",
-      live: "https://rotaflow-frontend.vercel.app/",
-    },
-    {
       name: "GitConnect",
       desc: "Social platform for developers to share projects, profiles, and opportunities. Implemented backend APIs, authentication, and real-time features — paired with an elegant frontend UI.",
       stack: "Go (Gin) · React · TailwindCSS · PostgreSQL · Docker",
       github: "https://github.com/Victormuthomi/gitconnect-backend",
       live: "https://gitconnect-frontend.vercel.app/",
+    },
+    {
+      name: "RotaFlow",
+      desc: "Workforce scheduling system for managing roles and shifts. Built RESTful APIs, database models, and the frontend interface for smooth team coordination and control.",
+      stack: "Node.js (Express) · React · TailwindCSS · PostgreSQL · Docker",
+      github: "https://github.com/Victormuthomi/rotaflow-backend",
+      live: "https://rotaflow-frontend.vercel.app/",
     },
     {
       name: "TuVote",
@@ -39,20 +53,12 @@ export default function Projects({ onComplete }) {
       github: "https://github.com/Victormuthomi/go-chat-system",
       live: "https://chat-system-5ppc.onrender.com/",
     },
-    // Added projects
     {
       name: "RazorBlogs",
       desc: "Full-stack blogging platform allowing users to create, read, update, and delete posts. Built with a focus on modularity, clean code, and responsive design.",
       stack: "Go (Gin) · React · TailwindCSS · Docker Compose",
       github: "https://github.com/Victormuthomi/razorblog-backend",
       live: "https://razorbill-website.vercel.app/blogs",
-    },
-    {
-      name: "RazorGPT",
-      desc: "AI-powered sports Q&A platform where users can ask questions about players, matches, and statistics. Integrated OpenAI API for fast, intelligent responses.",
-      stack: "Node.js · React · OpenAI API · TailwindCSS",
-      github: "https://github.com/Victormuthomi/razorblog-backend",
-      live: "https://razorbill-website.vercel.app/sportgpt",
     },
   ];
 

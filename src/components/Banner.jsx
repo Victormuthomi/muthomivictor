@@ -12,7 +12,7 @@ const colors = [
 ];
 
 export default function Banner({ onComplete }) {
-  const bannerText = "MUTHOMI VICTOR";
+  const bannerText = "VICTOR MUTHOMI";
   const subtitleText =
     "Software Engineer Crafting the unseen architecture where logic becomes life.";
 

@@ -16,6 +16,10 @@ import {
   SiNestjs,
   SiExpress,
   SiPrisma,
+  SiNextdotjs,
+  SiOpenai,
+  SiTensorflow,
+  SiPostman,
 } from "react-icons/si";
 import { LuInfinity } from "react-icons/lu";
 
@@ -65,7 +69,7 @@ export default function Skills() {
       <div className="w-full max-w-4xl mb-4">
         <pre className="text-lg font-mono">
           <span className="text-green-400">
-            $ the-alcodist{""}
+            $ the-alcodist{" "}
             <LuInfinity
               className="inline text-cyan-400 opacity-90 animate-pulse"
               size={18}
@@ -91,9 +95,17 @@ export default function Skills() {
           <Skill icon={<SiRedis />} name="Redis" />
         </SkillSection>
 
+        {/* AI & Integrations */}
+        <SkillSection title="🤖 AI & Integrations">
+          <Skill icon={<SiOpenai />} name="OpenAI API" />
+          <Skill icon={<SiTensorflow />} name="LLM Workflows" />
+          <Skill icon={<SiPostman />} name="API Integrations" />
+        </SkillSection>
+
         {/* Frontend Craft */}
         <SkillSection title="🌐 Frontend Craft">
           <Skill icon={<SiReact />} name="React" />
+          <Skill icon={<SiNextdotjs />} name="Next.js" />
           <Skill icon={<SiTailwindcss />} name="TailwindCSS" />
         </SkillSection>
 
@@ -105,20 +117,27 @@ export default function Skills() {
           <Skill icon={<FaAws />} name="AWS" />
           <Skill icon={<SiPrometheus />} name="Prometheus" />
           <Skill icon={<SiGrafana />} name="Grafana" />
-          <Skill icon={<FaGithub />} name="GitHub Actions" />
+          <Skill icon={<FaGithub />} name="GitHub / CI/CD" />
           <Skill icon={<FaLinux />} name="Linux Systems" />
-          <Skill icon={<FaGithub />} name="CI/CD" />
         </SkillSection>
 
         {/* Soft Skills */}
         <SkillSection title="💡 Soft Skills">
           <Skill
-            icon={<span className="text-green-400 text-4xl">🗣️</span>}
-            name="Communication"
+            icon={<span className="text-green-400 text-4xl">🧍‍♂️</span>}
+            name="Ownership / Autonomy"
           />
           <Skill
             icon={<span className="text-green-400 text-4xl">💡</span>}
             name="Problem Solving"
+          />
+          <Skill
+            icon={<span className="text-green-400 text-4xl">🗣️</span>}
+            name="Communication"
+          />
+          <Skill
+            icon={<span className="text-green-400 text-4xl">🧠</span>}
+            name="Adaptability / Learning"
           />
           <Skill
             icon={<span className="text-green-400 text-4xl">⚡</span>}
@@ -126,11 +145,15 @@ export default function Skills() {
           />
           <Skill
             icon={<span className="text-green-400 text-4xl">🤝</span>}
-            name="Teamwork"
+            name="Collaboration / Teamwork"
           />
           <Skill
-            icon={<span className="text-green-400 text-4xl">🧠</span>}
-            name="Adaptability"
+            icon={<span className="text-green-400 text-4xl">🔎</span>}
+            name="Attention to Detail"
+          />
+          <Skill
+            icon={<span className="text-green-400 text-4xl">❤️</span>}
+            name="Empathy"
           />
         </SkillSection>
       </div>

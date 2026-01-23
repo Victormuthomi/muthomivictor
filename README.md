@@ -1,111 +1,107 @@
-# Muthomi Victor 👋
+# Victor Muthomi 👋 — The Alcodist
 
-**Backend Developer | Building Reliable APIs & Scalable Systems**  
-_Specializing in Node.js, TypeScript, Go (Gin), Python (Django/DRF), PostgreSQL, MongoDB, Docker & Kubernetes_
+_Crafting systems where logic breathes, ideas scale, and code comes alive._
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-000?style=for-the-badge&logo=firefox&logoColor=white)](https://muthomivictor.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white)]
 
 ---
 
+## 💡 About Me
+
+I am **The Alcodist** — a full-stack engineer who began at the core: backend. I speak the language of logic, data, and architecture. From APIs to scalable systems, I craft code that is **reliable, maintainable, and alive**.
+
+I explore the frontend to connect humans with machines and embrace DevOps to ensure delivery with precision. I thrive on **autonomous, high-impact projects**, integrating AI-driven features and designing systems that **scale gracefully in the real world**.
+
 ---
 
-## 💡 Technical Skills
+## 💻 Core Skills
 
 ### Backend
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![REST API](https://img.shields.io/badge/REST_API-ff69b4?style=for-the-badge)
 
-### DevOps & Deployment
+### Frontend
+
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+### DevOps & Cloud
 
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white)
-![Ansible](https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white)
-![Railway](https://img.shields.io/badge/Railway-000000?style=for-the-badge)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge)
-![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge)
+![Railway](https://img.shields.io/badge/Railway-000000?style=for-the-badge)
 
 ---
 
 ## 💼 Experience
 
-- **Backend-Focused Full-Stack Developer @ Eleli Afrika (Freelance Projects)** — 2024 – 2025
+**Full-Stack Software Engineer — Freelance Projects @ Eleli Afrika** | 2024–2025
 
-  - Delivered backend solutions for multiple clients, automating CI/CD pipelines with GitHub Actions and reducing deployment errors by 50%.
-  - Built and maintained microservices and backend APIs using **Node.js, TypeScript, Go (Gin), and Django REST Framework**.
-  - Deployed scalable systems using **Docker, Kubernetes**, and IaC tools like **Terraform**, demonstrating end-to-end freelance project handling.
+- Architected end-to-end solutions: backend APIs to production-ready frontend.
+- Deployed cloud-native systems using **Docker/Kubernetes**, improving reliability.
+- Experimented with AI-driven features via **OpenAI API**.
 
-- **Backend Developer (Freelance) @ Bandika Creative Agency** — 2023 – 2024
+**Freelance Backend & Frontend Developer** | 2023–2024
 
-  - Handled backend development across multiple client projects using **Node.js (Express) and Go (Gin)**.
-  - Designed and implemented complex business logic for diverse industries.
-  - Containerized services with Docker & Docker Compose and managed client deliverables independently.
-
-- **Backend Developer @ Kisumu Lakeside Homes** — 2022 – 2023
-
-  - Built robust APIs with **Django REST Framework**.
-  - Optimized SQL queries, reducing response times by 30%.
-  - Introduced early DevOps workflows to improve deployment consistency.
-
-- **Ajirinow — Founder & Backend Lead** — 2025
-  - Planned and implemented all aspects of the platform as an indie hacker: backend, database design, and DevOps pipelines.
-  - Built a scalable backend connecting construction workers to clients using **Django REST Framework, PostgreSQL, Docker, and Kubernetes**.
-  - Delivered a fully functional MVP, demonstrating end-to-end self-taught engineering capability and readiness for launch.
+- Built backend services using **Node.js (Express), Django, Go (Gin)**.
+- Developed responsive interfaces with React & Tailwind CSS.
+- Containerized applications and deployed via Docker.
 
 ---
 
-## 🚀 Projects
+## 🚀 Featured Projects
 
-- **Ajirinow** — [Live](https://ajirinow.vercel.app/)  
-  _Founder & Backend Lead | Django REST Framework + PostgreSQL + Docker + Kubernetes_  
-  Platform connecting clients with construction workers. Clients can post jobs, and businesses can post ads. Built MVP independently, handling backend, database, and DevOps pipelines.
+**RazorGPT — AI-powered Sports Q&A**  
+_Node.js + OpenAI API + React_
 
-- **Rotaflow** — [Live](https://rotaflow-frontend.vercel.app/)  
-  _PERN Stack | Backend & API Development_  
-  Scheduling system for assigning roles and managing workers. Designed RESTful APIs and database models, enabling smooth management of workforce schedules.
+- Intelligent real-time sports responses via OpenAI API.  
+  [Live](https://razorbill-website.vercel.app/sportgpt) | [GitHub](https://github.com/Victormuthomi/razorbill-backend-old)
 
-- **GitConnect** — [Live](https://gitconnect-frontend.vercel.app/)  
-  _Go (Gin) + React + PostgreSQL_  
-  Social platform for developers to share projects, profiles, and job opportunities. Built backend APIs and integrated authentication, data relationships, and real-time features.
+**Alcodist Academy — Online Learning Platform**  
+_NestJS + React + MongoDB_
 
-- **Tuvote** — [Live](https://tuvote-frontend.vercel.app/)  
-  _MERN Stack | Backend & Security Focus_  
-  Secure online voting solution for organizations and communities. Developed backend API, authentication, and vote tallying system ensuring data integrity and security.
+- Trainee registration, progress journals, and dashboards.  
+  [Live](https://alcodist-academy.vercel.app/) | [GitHub](https://github.com/Victormuthomi/academy-backend)
+
+**MO-Jobs (Ajirinow) — Job Marketplace**  
+_Django REST Framework + PostgreSQL + React_
+
+- MVP connecting clients with skilled workers; backend & frontend fully developed.  
+  [Live](https://mojobs.vercel.app/) | [GitHub](https://github.com/Victormuthomi/ajirinow-backend)
+
+**Other Projects:** RotaFlow | RazorBlogs — see portfolio for links.
 
 ---
 
 ## 📊 GitHub Stats
 
-![Victor's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Victormuthomi&show_icons=true&theme=radical)  
+![Victor's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Victormuthomi&show_icons=true&theme=radical)
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Victormuthomi&layout=compact&theme=radical)
 
 ---
 
-## 📚 Education & Learning
+## 📚 Education
 
-- **Self-Taught Backend Developer**  
-  Driven by curiosity and practical problem-solving, I have mastered backend development through:
-  - Building and shipping real-world projects end-to-end
-  - Deep dives into official documentation and technical guides
-  - Online courses and tutorials focused on scalable systems
-  - Continuous experimentation with modern backend technologies, DevOps, and deployment pipelines
+**Self-Taught Full-Stack Developer** — Online Learning | 2022–Present
+
+- Continuously exploring new technologies and AI-driven workflows
+- Building end-to-end systems from scratch
 
 ---
 
 ## 📫 Contact
 
-- **Email:** [muthomi.victor.dev@gmail.com](mailto:muthomi.victor.dev@gmail.com)
-- **Phone:** +2547102 102 58
-
----
-
-## ⚡ Fun Fact
-
-I am a self-taught tech nerd who builds backend systems quietly saving the world, one request at a time. I am curious enough to explore anything new, stubborn enough to fix the unfixable, and human enough to celebrate when a deploy actually works.
+- **Email:** victor.muthomi.alcodist@gmail.com
+- **Phone:** +254 758 407 285
+- **Portfolio:** [muthomivictor.vercel.app](https://muthomivictor.vercel.app/)
+- **GitHub:** [Victormuthomi](https://github.com/Victormuthomi)
