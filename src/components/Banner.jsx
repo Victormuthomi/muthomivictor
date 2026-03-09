@@ -3,7 +3,7 @@ import { LuInfinity, LuTerminal, LuCpu } from "react-icons/lu";
 
 export default function Banner({ onComplete }) {
   // THE MASTER BRANDING
-  const bannerText = "VICTOR MUTHOMI";
+  const bannerText = "MUTHOMI VICTOR";
   const subtitleText =
     "Systems Architect & Product Builder crafting the resilient architecture where logic becomes life.";
 

@@ -60,7 +60,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="text-[9px] text-zinc-700 uppercase tracking-widest">
-            © {currentYear} Victor Muthomi // All Rights Reserved.
+            © {currentYear} Muthomi Victor // All Rights Reserved.
           </p>
         </div>
       </div>
