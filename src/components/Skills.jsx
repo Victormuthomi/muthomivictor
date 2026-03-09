@@ -1,173 +1,104 @@
 import { useEffect, useState } from "react";
 import { FaNodeJs, FaAws, FaGithub, FaLinux } from "react-icons/fa";
 import {
-  SiGo,
-  SiDjango,
-  SiPostgresql,
-  SiMongodb,
-  SiRedis,
-  SiDocker,
-  SiKubernetes,
-  SiPrometheus,
-  SiGrafana,
-  SiNginx,
-  SiReact,
-  SiTailwindcss,
-  SiNestjs,
-  SiExpress,
-  SiPrisma,
-  SiNextdotjs,
-  SiOpenai,
-  SiTensorflow,
-  SiPostman,
+  SiGo, SiDjango, SiPostgresql, SiMongodb, SiRedis, SiDocker,
+  SiKubernetes, SiPrometheus, SiGrafana, SiNginx, SiReact,
+  SiTailwindcss, SiNestjs, SiExpress, SiPrisma, SiNextdotjs,
+  SiOpenai, SiTensorflow, SiPostman,
 } from "react-icons/si";
-import { LuInfinity } from "react-icons/lu";
+import { LuInfinity, LuCommand, LuShieldCheck, LuZap } from "react-icons/lu";
 
 export default function Skills() {
   const [typedCommand, setTypedCommand] = useState("");
-  const command = "cat techstack.txt";
+  const command = "systemctl status tech-stack.service";
 
   useEffect(() => {
     let i = 0;
-    let deleting = false;
-    let timeout;
-
-    const loop = () => {
-      if (!deleting) {
-        if (i < command.length) {
-          setTypedCommand(command.slice(0, i + 1));
-          i++;
-          timeout = setTimeout(loop, 120);
-        } else {
-          timeout = setTimeout(() => {
-            deleting = true;
-            loop();
-          }, 1000);
-        }
+    const typing = setInterval(() => {
+      if (i <= command.length) {
+        setTypedCommand(command.slice(0, i));
+        i++;
       } else {
-        if (i > 0) {
-          setTypedCommand(command.slice(0, i - 1));
-          i--;
-          timeout = setTimeout(loop, 80);
-        } else {
-          deleting = false;
-          timeout = setTimeout(loop, 800);
-        }
+        clearInterval(typing);
       }
-    };
-
-    loop();
-    return () => clearTimeout(timeout);
+    }, 50);
+    return () => clearInterval(typing);
   }, []);
 
   return (
-    <section
-      id="skills"
-      className="flex flex-col items-center justify-center px-6 py-8 bg-black text-white"
-    >
-      {/* Terminal command */}
-      <div className="w-full max-w-4xl mb-4">
-        <pre className="text-lg font-mono">
-          <span className="text-green-400">
-            $ the-alcodist{" "}
-            <LuInfinity
-              className="inline text-cyan-400 opacity-90 animate-pulse"
-              size={18}
-            />{" "}
-            |{" "}
-          </span>
-          <span className="text-white">{typedCommand}</span>
-          <span className="animate-pulse">█</span>
-        </pre>
-      </div>
+    <section id="skills" className="py-20 bg-[#050505] text-zinc-300 px-6">
+      <div className="max-w-5xl mx-auto">
+        
+        {/* TERMINAL HEADER */}
+        <div className="mb-12 font-mono text-sm opacity-80">
+          <span className="text-amber-500">➜</span>
+          <span className="text-zinc-500 ml-2">~/the-alcodist</span>
+          <span className="text-white ml-2">$ {typedCommand}</span>
+          <span className="animate-pulse w-2 h-4 bg-amber-500/50 inline-block ml-1" />
+        </div>
 
-      <div className="w-full max-w-5xl space-y-8">
-        {/* Backend Architecture */}
-        <SkillSection title="🧩 Backend Architecture">
-          <Skill icon={<FaNodeJs />} name="Node.js" />
-          <Skill icon={<SiDjango />} name="Django REST" />
-          <Skill icon={<SiNestjs />} name="NestJS" />
-          <Skill icon={<SiExpress />} name="Express.js" />
-          <Skill icon={<SiGo />} name="Gin (Go)" />
-          <Skill icon={<SiPrisma />} name="Prisma ORM" />
-          <Skill icon={<SiPostgresql />} name="PostgreSQL" />
-          <Skill icon={<SiMongodb />} name="MongoDB" />
-          <Skill icon={<SiRedis />} name="Redis" />
-        </SkillSection>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+          
+          {/* CATEGORY: BACKEND */}
+          <SkillSection title="High-Integrity Systems" subtitle="Backend & Logic Architecture">
+            <Skill icon={<FaNodeJs />} name="Node.js" />
+            <Skill icon={<SiGo />} name="Go (Gin)" />
+            <Skill icon={<SiDjango />} name="Django" />
+            <Skill icon={<SiNestjs />} name="NestJS" />
+            <Skill icon={<SiPostgresql />} name="PostgreSQL" />
+            <Skill icon={<SiRedis />} name="Redis" />
+            <Skill icon={<SiPrisma />} name="Prisma" />
+            <Skill icon={<SiMongodb />} name="MongoDB" />
+          </SkillSection>
 
-        {/* AI & Integrations */}
-        <SkillSection title="🤖 AI & Integrations">
-          <Skill icon={<SiOpenai />} name="OpenAI API" />
-          <Skill icon={<SiTensorflow />} name="LLM Workflows" />
-          <Skill icon={<SiPostman />} name="API Integrations" />
-        </SkillSection>
+          {/* CATEGORY: CLOUD & DEVOPS */}
+          <SkillSection title="Reliability & Scale" subtitle="Infrastructure & Orchestration">
+            <Skill icon={<SiDocker />} name="Docker" />
+            <Skill icon={<SiKubernetes />} name="Kubernetes" />
+            <Skill icon={<FaAws />} name="AWS" />
+            <Skill icon={<SiPrometheus />} name="Prometheus" />
+            <Skill icon={<SiGrafana />} name="Grafana" />
+            <Skill icon={<FaGithub />} name="CI/CD" />
+            <Skill icon={<SiNginx />} name="Nginx" />
+            <Skill icon={<FaLinux />} name="Linux" />
+          </SkillSection>
 
-        {/* Frontend Craft */}
-        <SkillSection title="🌐 Frontend Craft">
-          <Skill icon={<SiReact />} name="React" />
-          <Skill icon={<SiNextdotjs />} name="Next.js" />
-          <Skill icon={<SiTailwindcss />} name="TailwindCSS" />
-        </SkillSection>
+          {/* CATEGORY: AI & FRONTEND */}
+          <SkillSection title="Product Engineering" subtitle="UI & Intelligent Automations">
+            <Skill icon={<SiReact />} name="React" />
+            <Skill icon={<SiNextdotjs />} name="Next.js" />
+            <Skill icon={<SiTailwindcss />} name="Tailwind" />
+            <Skill icon={<SiOpenai />} name="OpenAI" />
+            <Skill icon={<SiTensorflow />} name="Workflows" />
+          </SkillSection>
 
-        {/* Cloud & DevOps */}
-        <SkillSection title="☁️ Cloud & DevOps">
-          <Skill icon={<SiDocker />} name="Docker" />
-          <Skill icon={<SiKubernetes />} name="Kubernetes" />
-          <Skill icon={<SiNginx />} name="Nginx" />
-          <Skill icon={<FaAws />} name="AWS" />
-          <Skill icon={<SiPrometheus />} name="Prometheus" />
-          <Skill icon={<SiGrafana />} name="Grafana" />
-          <Skill icon={<FaGithub />} name="GitHub / CI/CD" />
-          <Skill icon={<FaLinux />} name="Linux Systems" />
-        </SkillSection>
+          {/* CATEGORY: PRINCIPLES (The Soft Skills) */}
+          <SkillSection title="Engineering Principles" subtitle="Founder's Mindset">
+            <Skill icon={<LuShieldCheck />} name="Extreme Ownership" />
+            <Skill icon={<LuZap />} name="Problem Solver" />
+            <Skill icon={<LuCommand />} name="Autonomy" />
+            <Skill icon={<LuInfinity />} name="Life-long Learner" />
+          </SkillSection>
 
-        {/* Soft Skills */}
-        <SkillSection title="💡 Soft Skills">
-          <Skill
-            icon={<span className="text-green-400 text-4xl">🧍‍♂️</span>}
-            name="Ownership / Autonomy"
-          />
-          <Skill
-            icon={<span className="text-green-400 text-4xl">💡</span>}
-            name="Problem Solving"
-          />
-          <Skill
-            icon={<span className="text-green-400 text-4xl">🗣️</span>}
-            name="Communication"
-          />
-          <Skill
-            icon={<span className="text-green-400 text-4xl">🧠</span>}
-            name="Adaptability / Learning"
-          />
-          <Skill
-            icon={<span className="text-green-400 text-4xl">⚡</span>}
-            name="Proactiveness"
-          />
-          <Skill
-            icon={<span className="text-green-400 text-4xl">🤝</span>}
-            name="Collaboration / Teamwork"
-          />
-          <Skill
-            icon={<span className="text-green-400 text-4xl">🔎</span>}
-            name="Attention to Detail"
-          />
-          <Skill
-            icon={<span className="text-green-400 text-4xl">❤️</span>}
-            name="Empathy"
-          />
-        </SkillSection>
+        </div>
       </div>
     </section>
   );
 }
 
-function SkillSection({ title, children }) {
+function SkillSection({ title, subtitle, children }) {
   return (
-    <div className="animate-slide-up">
-      <h2 className="text-2xl font-bold mb-3">
-        <span className="text-green-400">#</span> {title}
-      </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    <div className="group">
+      <div className="mb-6">
+        <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+           <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+           {title}
+        </h2>
+        <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mt-1">
+          {subtitle}
+        </p>
+      </div>
+      <div className="grid grid-cols-4 sm:grid-cols-4 gap-y-8 gap-x-4">
         {children}
       </div>
     </div>
@@ -176,9 +107,13 @@ function SkillSection({ title, children }) {
 
 function Skill({ icon, name }) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="text-4xl mb-1 text-green-400">{icon}</div>
-      <p className="text-white text-center text-sm">{name}</p>
+    <div className="flex flex-col items-center group/item">
+      <div className="text-2xl mb-2 text-zinc-600 group-hover/item:text-amber-500 transition-colors duration-300">
+        {icon}
+      </div>
+      <p className="text-[10px] font-mono text-zinc-500 text-center uppercase tracking-tighter">
+        {name}
+      </p>
     </div>
   );
 }

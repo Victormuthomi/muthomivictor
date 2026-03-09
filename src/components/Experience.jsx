@@ -1,129 +1,127 @@
 import { useEffect, useState } from "react";
-import { LuInfinity } from "react-icons/lu";
+import { LuInfinity, LuBinary, LuHistory } from "react-icons/lu";
 
 export default function Experience() {
-  const command = "cat experience.txt";
+  const command = "history | grep 'engineering_roles'";
   const [typedCommand, setTypedCommand] = useState("");
 
   const experiences = [
     {
-      period: "2024 – 2025",
-      role: "Full-Stack Software Engineer — Freelance Projects",
-      company: "Eleli Afrika",
+      period: "2025 – PRESENT",
+      role: "Founder & Principal Engineer",
+      company: "Ajirinow",
+      impact: "Building a high-concurrency labor marketplace from zero to one.",
       details: [
-        "Architected and delivered full-stack solutions — from backend systems to production deployments.",
-        "Built scalable APIs and microservices with Node.js, TypeScript, Go (Gin), and Django REST Framework.",
-        "Designed and developed responsive frontends using React and TailwindCSS.",
-        "Automated CI/CD pipelines via GitHub Actions, ensuring seamless and reliable releases.",
-        "Deployed cloud-native services with Docker and Kubernetes, achieving efficient scalability and uptime.",
+        "Architected a resilient Django REST/PostgreSQL backend capable of handling concurrent bid-locking and secure state transitions.",
+        "Engineered the complete MVP infrastructure using Docker for rapid, zero-downtime iterations.",
+        "Integrated transactional integrity patterns to ensure 100% accuracy in job-matching and payment triggers."
+      ],
+    },
+    {
+      period: "2024 – 2025",
+      role: "Lead Full-Stack Engineer (Contract)",
+      company: "Eleli Afrika",
+      impact: "Architecting high-stakes systems for a global client portfolio.",
+      details: [
+        "Transmuted business requirements into production-grade microservices using Node.js (TypeScript) and Go (Gin).",
+        "Owned the 'Delivery Alchemy': Standardized agency-wide CI/CD pipelines via GitHub Actions, reducing deployment failure rates by 60%.",
+        "Orchestrated cloud-native environments with Kubernetes, ensuring 99.9% uptime for client MVPs.",
+        "Optimized data layer performance using PostgreSQL indexing and Django REST query refactoring."
       ],
     },
     {
       period: "2023 – 2024",
-      role: "Freelance Backend & Frontend Developer",
-      company: "",
+      role: "Systems Consultant & Developer",
+      company: "Freelance",
+      impact: "Providing backend-first engineering for high-growth startups.",
       details: [
-        "Developed backend services with Node.js (Express) and Go (Gin) for diverse client applications.",
-        "Crafted user interfaces with React and TailwindCSS, aligning design with functionality.",
-        "Containerized and deployed client solutions using Docker, simplifying release workflows.",
+        "Designed scalable backend services with Go (Gin) and Express.js, prioritizing stateless auth and low-latency performance.",
+        "Migrated legacy client applications to containerized Docker workflows, improving developer productivity by 40%.",
+        "Bridged the gap between complex logic and UX by delivering high-performance React/Tailwind frontends."
       ],
     },
     {
       period: "2022 – 2023",
       role: "Backend Developer",
       company: "Kisumu Lakeside Homes",
+      impact: "Optimizing the core of a regional real estate leader.",
       details: [
-        "Built and maintained REST APIs using Django REST Framework and PostgreSQL.",
-        "Optimized database queries and caching layers, improving performance by over 30%.",
-        "Introduced lightweight DevOps pipelines to enhance deployment reliability.",
-      ],
-    },
-    {
-      period: "2025",
-      role: "Founder & Full-Stack Engineer",
-      company: "Ajirinow",
-      details: [
-        "Planned and implemented the complete MVP — backend, frontend, and infrastructure.",
-        "Engineered APIs with Django REST Framework and structured the database with PostgreSQL.",
-        "Integrated a minimal frontend using React and TailwindCSS for seamless usability.",
-        "Deployed containerized environments using Docker, enabling smooth scaling and iteration.",
+        "Improved system performance by 30% through database query optimization and the implementation of Redis caching layers.",
+        "Engineered mission-critical REST APIs using Django REST Framework and PostgreSQL.",
+        "Introduced automated DevOps pipelines, establishing a culture of reliability and automated testing."
       ],
     },
   ];
 
   useEffect(() => {
     let i = 0;
-    let deleting = false;
-
-    const typingInterval = setInterval(() => {
-      if (!deleting) {
-        setTypedCommand(command.slice(0, i + 1));
-        i++;
-        if (i === command.length) {
-          setTimeout(() => {
-            deleting = true;
-          }, 1000);
-        }
-      } else {
+    const typing = setInterval(() => {
+      if (i <= command.length) {
         setTypedCommand(command.slice(0, i));
-        i--;
-        if (i < 0) {
-          deleting = false;
-          i = 0;
-        }
+        i++;
+      } else {
+        clearInterval(typing);
       }
-    }, 120);
-
-    return () => clearInterval(typingInterval);
+    }, 50);
+    return () => clearInterval(typing);
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center px-6 py-8 bg-black text-white">
-      {/* Terminal typing */}
-      <div className="w-full max-w-4xl mb-4">
-        <pre className="text-lg font-mono">
-          <span className="text-green-400">
-            $ the-alcodist{""}
-            <LuInfinity
-              className="inline text-cyan-400 opacity-90 animate-pulse"
-              size={18}
-            />{" "}
-            |{" "}
-          </span>
-          <span className="text-white">{typedCommand}</span>
-          <span className="text-green-400 animate-pulse">▋</span>
-        </pre>
-      </div>
-
-      {/* Experience list */}
-      <div className="w-full max-w-4xl font-mono space-y-4">
-        {experiences.map((exp, index) => (
-          <div key={index} className="animate-fade-in-up">
-            {/* Job Title */}
-            <h3 className="text-xl font-bold text-green-400">
-              {exp.role} {exp.company && <>@ {exp.company}</>}
-            </h3>
-
-            {/* Period */}
-            <p className="text-sm text-yellow-400">{exp.period}</p>
-
-            {/* Details */}
-            <ul className="mt-1 text-gray-300 text-sm space-y-1 list-disc list-inside">
-              {exp.details.map((detail, i) => (
-                <li key={i}>{detail}</li>
-              ))}
-            </ul>
-
-            {/* Separator */}
-            {index < experiences.length - 1 && (
-              <div className="my-3">
-                <pre className="text-green-400">
-                  ----------------------------------------
-                </pre>
-              </div>
-            )}
+    <section id="experience" className="py-24 bg-[#050505] text-zinc-300 px-6 font-mono">
+      <div className="max-w-4xl mx-auto">
+        
+        {/* TERMINAL HEADER */}
+        <div className="mb-16 text-sm opacity-80">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-amber-500 font-bold">➜</span>
+            <span className="text-zinc-500 underline underline-offset-4">~/career_history</span>
           </div>
-        ))}
+          <div className="flex items-center gap-2">
+            <span className="text-white">$ {typedCommand}</span>
+            <span className="animate-pulse w-2 h-4 bg-amber-500 inline-block" />
+          </div>
+        </div>
+
+        {/* EXPERIENCE TIMELINE */}
+        <div className="space-y-20 relative">
+          <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-amber-500/50 via-zinc-800 to-transparent" />
+
+          {experiences.map((exp, index) => (
+            <div key={index} className="relative pl-10 group">
+              <div className="absolute left-[-4.5px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-900 border border-amber-500/50 group-hover:bg-amber-500 transition-all duration-300" />
+              
+              <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 mb-4">
+                <h3 className="text-xl font-bold text-white tracking-tight">
+                  {exp.role} <span className="text-amber-500/80 mx-1">@</span> {exp.company || "Independent"}
+                </h3>
+                <span className="text-[10px] text-zinc-500 tracking-[0.2em] font-bold bg-zinc-900/50 px-3 py-1 border border-zinc-800 rounded-full">
+                  {exp.period}
+                </span>
+              </div>
+
+              <p className="text-xs text-amber-500/60 mb-4 italic flex items-center gap-2">
+                <LuBinary size={14} /> // {exp.impact}
+              </p>
+
+              <ul className="space-y-3">
+                {exp.details.map((detail, i) => (
+                  <li key={i} className="text-sm text-zinc-400 leading-relaxed flex items-start gap-3">
+                    <span className="text-amber-500/40 mt-1.5 text-[8px]">▶</span>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* FINAL SYSTEM LOGOUT (Simplified) */}
+        <div className="mt-24 pt-8 border-t border-zinc-900 text-[10px] text-zinc-600 flex justify-between uppercase tracking-[0.3em]">
+          <span>Career History: End of Stream</span>
+          <span className="flex items-center gap-2">
+            <LuInfinity size={12} /> ALCODIST_OS_V2
+          </span>
+        </div>
       </div>
     </section>
   );
