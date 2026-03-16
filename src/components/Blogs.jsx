@@ -1,119 +1,166 @@
 import { useEffect, useState } from "react";
-import { LuInfinity, LuFileText, LuEye, LuArrowRight } from "react-icons/lu";
+import {
+  LuInfinity,
+  LuCpu,
+  LuShieldCheck,
+  LuBookOpen,
+  LuTriangleAlert,
+  LuFolderSearch,
+  LuEye,
+  LuChevronRight,
+} from "react-icons/lu";
 
 export default function MyBlogs({ authorId }) {
-  const username = "the-alcodist";
-  const command = "ls -la --sort=popularity ./knowledge_base";
-  const [typedCommand, setTypedCommand] = useState("");
-  const [blogs, setBlogs] = useState([]);
+  const [groupedBlogs, setGroupedBlogs] = useState({
+    tdd: [],
+    case_study: [],
+    blog: [],
+  });
+  const [loading, setLoading] = useState(true);
+
+  const categories = [
+    {
+      key: "tdd",
+      label: "Technical Design Documents",
+      sub: "System architecture, security hardening, and database blueprints.",
+      icon: <LuCpu size={18} />,
+      color: "text-amber-500",
+    },
+    {
+      key: "case_study",
+      label: "Industrial Case Studies",
+      sub: "Production post-mortems and deep-dives into complex problem solving.",
+      icon: <LuShieldCheck size={18} />,
+      color: "text-blue-400",
+    },
+    {
+      key: "blog",
+      label: "General Knowledge Base",
+      sub: "Technical notes, programming fundamentals, and industry observations.",
+      icon: <LuBookOpen size={18} />,
+      color: "text-zinc-500",
+    },
+  ];
 
   useEffect(() => {
-    let i = 0;
-    const typing = setInterval(() => {
-      if (i <= command.length) {
-        setTypedCommand(command.slice(0, i));
-        i++;
-      } else {
-        clearInterval(typing);
-      }
-    }, 40);
-    return () => clearInterval(typing);
-  }, []);
+    // Using the authorId passed via props or hardcoded
+    const id = authorId || "691f0f2d531c6c2c7080d221";
 
-  useEffect(() => {
-    fetch(`https://razorblog-backend.onrender.com/blogs/author/${authorId}`)
+    fetch(`https://razorblog-backend.onrender.com/blogs/author/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        // Data usually comes in as { blog: {...} } based on your map logic
-        const sorted = data.sort((a, b) => b.blog.readers - a.blog.readers);
-        setBlogs(sorted);
+        const groups = data.reduce(
+          (acc, item) => {
+            const blogData = item.blog || item;
+            // LOOKING AT THE 'type' FIELD NOW
+            const type = (blogData.type || "blog").toLowerCase().trim();
+
+            if (acc[type]) {
+              acc[type].push(blogData);
+            } else {
+              acc.blog.push(blogData);
+            }
+            return acc;
+          },
+          { tdd: [], case_study: [], blog: [] },
+        );
+
+        setGroupedBlogs(groups);
+        setLoading(false);
       })
-      .catch(console.error);
+      .catch(() => setLoading(false));
   }, [authorId]);
 
   const getSnippet = (html) => {
-    const text = html.replace(/<[^>]*>/g, ""); // Faster regex-based strip for performance
-    return text.length > 120 ? text.slice(0, 120) + "..." : text;
+    const text = html.replace(/<[^>]*>/g, "");
+    return text.length > 90 ? text.slice(0, 90) + "..." : text;
   };
 
-  const displayBlogs = blogs.slice(0, 4);
-
   return (
-    <section className="py-20 bg-[#050505] text-zinc-300 px-6 font-mono">
+    <section
+      id="knowledge-base"
+      className="py-24 bg-[#050505] text-zinc-300 px-6 font-mono"
+    >
       <div className="max-w-4xl mx-auto">
-        
-        {/* TERMINAL HEADER */}
-        <div className="mb-12 text-sm opacity-80">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-amber-500 font-bold">➜</span>
-            <span className="text-zinc-500 underline underline-offset-4">~/thoughts_and_theories</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-white">$ {typedCommand}</span>
-            <span className="animate-pulse w-2 h-4 bg-amber-500 inline-block" />
-          </div>
+        <div className="mb-20">
+          <h2 className="text-4xl font-black text-white tracking-tighter mb-4 uppercase italic">
+            Knowledge_Base
+          </h2>
+          <div className="h-1 w-20 bg-amber-500" />
         </div>
 
-        {/* BLOG GRID: Senior Industrial Style */}
-        <div className="grid grid-cols-1 gap-8">
-          {displayBlogs.map(({ blog }) => (
-            <div key={blog.id} className="group relative flex flex-col md:flex-row gap-6 p-4 border border-zinc-900 hover:border-zinc-800 hover:bg-zinc-900/20 transition-all rounded-xl">
-              
-              {/* IMAGE / ICON COMBO */}
-              <div className="relative w-full md:w-32 h-32 shrink-0 overflow-hidden rounded-lg border border-zinc-800 grayscale group-hover:grayscale-0 transition-all duration-500">
-                <img
-                  src={blog.image_url}
-                  alt={blog.title}
-                  className="w-full h-full object-cover opacity-60 group-hover:opacity-100"
-                />
-                <div className="absolute top-2 left-2 p-1 bg-black/80 rounded border border-white/10">
-                  <LuFileText size={14} className="text-amber-500" />
-                </div>
-              </div>
-
-              {/* CONTENT */}
-              <div className="flex flex-col justify-center flex-grow">
-                <div className="flex justify-between items-start mb-2">
-                  <a
-                    href={`https://razorbill-website.vercel.app/blogs/${blog.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg font-bold text-white group-hover:text-amber-500 transition-colors tracking-tight"
-                  >
-                    {blog.title.toUpperCase()}
-                  </a>
-                  <div className="flex items-center gap-2 text-[10px] text-zinc-500">
-                    <LuEye size={12}/> {blog.readers || 0} READERS
+        <div className="space-y-32">
+          {categories.map((cat) => (
+            <div key={cat.key}>
+              {/* Category Header */}
+              <div className="flex items-end justify-between mb-8 border-b border-zinc-900 pb-4">
+                <div className="flex items-center gap-4">
+                  <span className={`${cat.color}`}>{cat.icon}</span>
+                  <div>
+                    <h3 className="text-lg font-bold text-white uppercase tracking-tight">
+                      {cat.label}
+                    </h3>
+                    <p className="text-[10px] text-zinc-600 uppercase mt-2 tracking-widest">
+                      {cat.sub}
+                    </p>
                   </div>
                 </div>
-                
-                <p className="text-zinc-500 text-xs leading-relaxed mb-4">
-                  {getSnippet(blog.content)}
-                </p>
-
-                <a 
-                  href={`https://razorbill-website.vercel.app/blogs/${blog.id}`}
-                  target="_blank"
-                  className="text-[10px] text-amber-500/80 font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all"
-                >
-                  Decrypt Full Entry <LuArrowRight size={12} />
-                </a>
+                <span className="text-[9px] text-zinc-800 font-bold hidden md:block">
+                  FS_PATH: /{cat.key}
+                </span>
               </div>
+
+              {/* Items or Error */}
+              {groupedBlogs[cat.key].length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {groupedBlogs[cat.key].map((blog) => (
+                    <a
+                      key={blog.id}
+                      href={`https://razorbill-website.vercel.app/blogs/${blog.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group p-6 bg-zinc-950 border border-zinc-900 hover:border-zinc-700 transition-all rounded-sm flex flex-col justify-between"
+                    >
+                      <div>
+                        <div className="flex justify-between items-start mb-4">
+                          <span className="text-[8px] text-zinc-700 font-bold">
+                            SHA_256: {blog.id.slice(-6)}
+                          </span>
+                          <div className="flex items-center gap-2 text-[8px] text-zinc-600">
+                            <LuEye size={10} /> {blog.readers || 0}
+                          </div>
+                        </div>
+                        <h4 className="text-sm font-bold text-zinc-200 group-hover:text-amber-500 transition-colors uppercase mb-3 leading-tight">
+                          {blog.title}
+                        </h4>
+                        <p className="text-[10px] text-zinc-500 leading-relaxed mb-6">
+                          {getSnippet(blog.content)}
+                        </p>
+                      </div>
+                      <div className="text-[8px] font-black text-zinc-800 group-hover:text-zinc-500 uppercase tracking-widest flex items-center gap-2">
+                        <LuChevronRight size={10} /> Execute_Read_Protocol
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <div className="py-16 border border-dashed border-zinc-900 rounded-sm flex flex-col items-center justify-center text-center opacity-50">
+                  <LuTriangleAlert size={20} className="text-zinc-800 mb-4" />
+                  <p className="text-[10px] text-zinc-700 uppercase tracking-[0.3em] font-bold italic">
+                    {cat.key === "case_study"
+                      ? "No Case Studies Analyzed"
+                      : "Empty Directory"}
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        {/* MORE BUTTON */}
-        {blogs.length > 4 && (
-          <div className="mt-12 text-center">
-            <a 
-              href={`https://razorbill-website.vercel.app/author/${authorId}`}
-              className="px-8 py-3 bg-zinc-900/50 border border-zinc-800 text-[10px] text-zinc-400 font-bold uppercase tracking-[0.3em] hover:border-amber-500/40 hover:text-white transition-all rounded-lg"
-            >
-              [ View Complete Knowledge Base ]
-            </a>
-          </div>
-        )}
+        <div className="mt-40 pt-8 border-t border-zinc-900 flex justify-between items-center text-[10px] text-zinc-800 uppercase tracking-[0.3em]">
+          <span>Index_integrity: 100%</span>
+          <LuInfinity size={14} className="opacity-20" />
+        </div>
       </div>
     </section>
   );

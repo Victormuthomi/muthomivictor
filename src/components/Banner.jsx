@@ -2,10 +2,10 @@ import { useEffect, useState, useRef } from "react";
 import { LuInfinity, LuTerminal, LuCpu } from "react-icons/lu";
 
 export default function Banner({ onComplete }) {
-  // THE MASTER BRANDING
+  // THE MASTER BRANDING - Defined at top level to fix ReferenceError
   const bannerText = "MUTHOMI VICTOR";
-  const subtitleText =
-    "Systems Architect & Product Builder crafting the resilient architecture where logic becomes life.";
+  const role = "Systems Architect & Principal Engineer";
+  const subtitleText = `${role} building resilient, high-integrity infrastructure where logic meets scale.`;
 
   const [bannerDisplay, setBannerDisplay] = useState("");
   const [subtitleDisplay, setSubtitleDisplay] = useState("");
@@ -31,14 +31,13 @@ export default function Banner({ onComplete }) {
           }
         }
       }
-    }, 40); // Faster typing speed for a snappier, "High-Performance" feel
+    }, 40);
 
     return () => clearInterval(typingInterval);
-  }, [onComplete]);
+  }, [onComplete, subtitleText]);
 
   const renderSubtitle = (text) => {
     if (!text) return null;
-    const role = "Systems Architect & Product Builder";
 
     if (text.length <= role.length) {
       return (
@@ -61,23 +60,23 @@ export default function Banner({ onComplete }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[40vh] py-12 text-center px-4 relative overflow-hidden">
-      {/* BACKGROUND DECORATION: Subtle Grid for that "World Class" feel */}
+    <div className="flex flex-col items-center justify-center min-h-[40vh] py-12 text-center px-4 relative overflow-hidden bg-zinc-950">
+      {/* BACKGROUND DECORATION */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
       {/* SYSTEM METADATA BAR */}
-      <div className="flex items-center gap-4 mb-6 text-[10px] font-mono text-zinc-500 tracking-[0.2em] uppercase">
+      <div className="flex items-center gap-4 mb-6 text-[10px] font-mono text-zinc-500 tracking-[0.2em] uppercase relative z-10">
         <span className="flex items-center gap-1">
-          <LuTerminal size={12} /> Status: Online
+          <LuTerminal size={12} /> ST: ONLINE
         </span>
         <span className="flex items-center gap-1">
-          <LuCpu size={12} /> Mode: Indie Hacker
+          <LuCpu size={12} /> ARCH: INDEPENDENT
         </span>
         <span className="animate-pulse text-amber-500/50">●</span>
       </div>
 
-      {/* MAIN NAME: Monochromatic & Bold */}
-      <h1 className="text-5xl sm:text-7xl font-black tracking-tighter text-white mb-2 relative">
+      {/* MAIN NAME */}
+      <h1 className="text-5xl sm:text-7xl font-black tracking-tighter text-white mb-2 relative z-10">
         {bannerDisplay}
         {bannerDisplay.length < bannerText.length && (
           <span className="animate-pulse text-amber-500 absolute ml-1">▋</span>
@@ -85,16 +84,16 @@ export default function Banner({ onComplete }) {
       </h1>
 
       {/* SUBTITLE */}
-      <div className="mt-4 text-base sm:text-lg max-w-2xl leading-relaxed flex flex-wrap items-center justify-center min-h-[3rem]">
+      <div className="mt-4 text-base sm:text-lg max-w-2xl leading-relaxed flex flex-wrap items-center justify-center min-h-[3rem] relative z-10">
         {renderSubtitle(subtitleDisplay)}
-        {subtitleDisplay.length >= bannerText.length &&
+        {subtitleDisplay.length >= role.length &&
           subtitleDisplay.length < subtitleText.length && (
             <span className="animate-pulse text-zinc-500 ml-1">▋</span>
           )}
       </div>
 
       {/* FOOTER DECORATION */}
-      <div className="mt-8 flex items-center gap-2 text-zinc-600">
+      <div className="mt-8 flex items-center gap-2 text-zinc-600 relative z-10">
         <div className="h-[1px] w-12 bg-zinc-800" />
         <LuInfinity size={14} className="text-zinc-700" />
         <div className="h-[1px] w-12 bg-zinc-800" />

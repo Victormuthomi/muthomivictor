@@ -1,13 +1,68 @@
 import { useEffect, useState } from "react";
-import { FaNodeJs, FaAws, FaGithub, FaLinux } from "react-icons/fa";
+import { FaNodeJs, FaGithub, FaLinux } from "react-icons/fa";
 import {
-  SiGo, SiDjango, SiPostgresql, SiMongodb, SiRedis, SiDocker,
-  SiKubernetes, SiPrometheus, SiGrafana, SiNginx, SiReact,
-  SiTailwindcss, SiNestjs, SiExpress, SiPrisma, SiNextdotjs,
-  SiOpenai, SiTensorflow, SiPostman,
+  SiGo,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiDocker,
+  SiKubernetes,
+  SiNginx,
+  SiReact,
+  SiTailwindcss,
+  SiNestjs,
+  SiPrisma,
+  SiNextdotjs,
+  SiOpenai,
 } from "react-icons/si";
-import { LuInfinity, LuCommand, LuShieldCheck, LuZap } from "react-icons/lu";
+import {
+  LuInfinity,
+  LuCommand,
+  LuShieldCheck,
+  LuZap,
+  LuActivity,
+} from "react-icons/lu";
 
+// SUB-COMPONENTS (Defined outside to keep the export clean)
+function Skill({ icon, name, primary }) {
+  return (
+    <div className="flex flex-col items-start group/item cursor-default">
+      <div
+        className={`text-3xl mb-3 transition-all duration-300 
+        ${primary ? "text-amber-500" : "text-zinc-700"} 
+        group-hover/item:text-amber-400 group-hover/item:scale-110 group-hover/item:drop-shadow-[0_0_8px_rgba(251,191,36,0.2)]`}
+      >
+        {icon}
+      </div>
+      <p
+        className={`text-[9px] font-mono uppercase tracking-tighter transition-colors duration-300
+        ${primary ? "text-zinc-300 font-bold" : "text-zinc-600"} 
+        group-hover/item:text-zinc-200`}
+      >
+        {name}
+      </p>
+    </div>
+  );
+}
+
+function SkillSection({ title, subtitle, children }) {
+  return (
+    <div className="space-y-8">
+      <div>
+        <h3 className="text-lg font-black text-white tracking-tighter uppercase italic flex items-center gap-2">
+          <span className="w-1 h-4 bg-amber-500/50 rounded-full" />
+          {title}
+        </h3>
+        <p className="text-[9px] font-mono text-zinc-500 uppercase tracking-[0.2em] mt-1">
+          {subtitle}
+        </p>
+      </div>
+      <div className="grid grid-cols-3 gap-y-10 gap-x-4">{children}</div>
+    </div>
+  );
+}
+
+// MAIN EXPORT
 export default function Skills() {
   const [typedCommand, setTypedCommand] = useState("");
   const command = "systemctl status tech-stack.service";
@@ -21,99 +76,67 @@ export default function Skills() {
       } else {
         clearInterval(typing);
       }
-    }, 50);
+    }, 45);
     return () => clearInterval(typing);
-  }, []);
+  }, [command]);
 
   return (
-    <section id="skills" className="py-20 bg-[#050505] text-zinc-300 px-6">
-      <div className="max-w-5xl mx-auto">
-        
+    <section id="skills" className="py-24 bg-[#050505] text-zinc-300 px-6">
+      <div className="max-w-6xl mx-auto">
         {/* TERMINAL HEADER */}
-        <div className="mb-12 font-mono text-sm opacity-80">
-          <span className="text-amber-500">➜</span>
-          <span className="text-zinc-500 ml-2">~/the-alcodist</span>
-          <span className="text-white ml-2">$ {typedCommand}</span>
-          <span className="animate-pulse w-2 h-4 bg-amber-500/50 inline-block ml-1" />
+        <div className="mb-16 font-mono text-xs opacity-70 border-l-2 border-amber-500/30 pl-4 py-1">
+          <div className="flex items-center gap-2">
+            <span className="text-amber-500 font-bold">➜</span>
+            <span className="text-zinc-500">~/alcodist-hub</span>
+            <span className="text-white tracking-tight">$ {typedCommand}</span>
+            <span className="animate-pulse w-2 h-4 bg-amber-500/50" />
+          </div>
+          <p className="mt-2 text-[10px] text-zinc-600 uppercase tracking-widest font-medium">
+            ● tech-stack.service - Backend Infrastructure & Core Logic
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-          
-          {/* CATEGORY: BACKEND */}
-          <SkillSection title="High-Integrity Systems" subtitle="Backend & Logic Architecture">
-            <Skill icon={<FaNodeJs />} name="Node.js" />
-            <Skill icon={<SiGo />} name="Go (Gin)" />
-            <Skill icon={<SiDjango />} name="Django" />
-            <Skill icon={<SiNestjs />} name="NestJS" />
-            <Skill icon={<SiPostgresql />} name="PostgreSQL" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <SkillSection
+            title="Core Systems"
+            subtitle="Scalable Backend Architecture"
+          >
+            <Skill icon={<SiNestjs />} name="NestJS" primary />
+            <Skill icon={<SiGo />} name="Go (Gin)" primary />
+            <Skill icon={<SiPostgresql />} name="PostgreSQL" primary />
             <Skill icon={<SiRedis />} name="Redis" />
             <Skill icon={<SiPrisma />} name="Prisma" />
             <Skill icon={<SiMongodb />} name="MongoDB" />
+            <Skill icon={<FaNodeJs />} name="Node.js" />
           </SkillSection>
 
-          {/* CATEGORY: CLOUD & DEVOPS */}
-          <SkillSection title="Reliability & Scale" subtitle="Infrastructure & Orchestration">
-            <Skill icon={<SiDocker />} name="Docker" />
-            <Skill icon={<SiKubernetes />} name="Kubernetes" />
-            <Skill icon={<FaAws />} name="AWS" />
-            <Skill icon={<SiPrometheus />} name="Prometheus" />
-            <Skill icon={<SiGrafana />} name="Grafana" />
+          <SkillSection
+            title="Infrastructure"
+            subtitle="Orchestration & Deployment"
+          >
+            <Skill icon={<SiDocker />} name="Docker" primary />
             <Skill icon={<FaGithub />} name="CI/CD" />
+            <Skill icon={<SiKubernetes />} name="K8s" />
             <Skill icon={<SiNginx />} name="Nginx" />
             <Skill icon={<FaLinux />} name="Linux" />
+            <Skill icon={<LuActivity />} name="Monitoring" />
           </SkillSection>
 
-          {/* CATEGORY: AI & FRONTEND */}
-          <SkillSection title="Product Engineering" subtitle="UI & Intelligent Automations">
+          <SkillSection title="Interfaces" subtitle="Frontend & AI Workflows">
             <Skill icon={<SiReact />} name="React" />
             <Skill icon={<SiNextdotjs />} name="Next.js" />
             <Skill icon={<SiTailwindcss />} name="Tailwind" />
-            <Skill icon={<SiOpenai />} name="OpenAI" />
-            <Skill icon={<SiTensorflow />} name="Workflows" />
+            <Skill icon={<SiOpenai />} name="LLM Ops" />
           </SkillSection>
 
-          {/* CATEGORY: PRINCIPLES (The Soft Skills) */}
-          <SkillSection title="Engineering Principles" subtitle="Founder's Mindset">
-            <Skill icon={<LuShieldCheck />} name="Extreme Ownership" />
-            <Skill icon={<LuZap />} name="Problem Solver" />
-            <Skill icon={<LuCommand />} name="Autonomy" />
-            <Skill icon={<LuInfinity />} name="Life-long Learner" />
+          <SkillSection title="Principles" subtitle="Architect Mindset">
+            <Skill icon={<LuShieldCheck />} name="Ownership" primary />
+            <Skill icon={<LuCommand />} name="Autonomy" primary />
+            <Skill icon={<LuZap />} name="TDD First" />
+            <Skill icon={<LuInfinity />} name="R&D Logic" />
           </SkillSection>
-
         </div>
       </div>
     </section>
-  );
-}
-
-function SkillSection({ title, subtitle, children }) {
-  return (
-    <div className="group">
-      <div className="mb-6">
-        <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-           <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-           {title}
-        </h2>
-        <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mt-1">
-          {subtitle}
-        </p>
-      </div>
-      <div className="grid grid-cols-4 sm:grid-cols-4 gap-y-8 gap-x-4">
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function Skill({ icon, name }) {
-  return (
-    <div className="flex flex-col items-center group/item">
-      <div className="text-2xl mb-2 text-zinc-600 group-hover/item:text-amber-500 transition-colors duration-300">
-        {icon}
-      </div>
-      <p className="text-[10px] font-mono text-zinc-500 text-center uppercase tracking-tighter">
-        {name}
-      </p>
-    </div>
   );
 }
